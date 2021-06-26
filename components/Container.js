@@ -7,6 +7,7 @@ import Navigation from '../components/Navigation'
 import MobileNavigation from '../components/MobileNavigation'
 import MobileNavigationTop from '../components/MobileNavigationTop'
 
+import DarkModeSwitch from '../components/DarkModeSwitch'
 
 const Container = ({ children }) => {
   const { colorMode } = useColorMode()
@@ -21,21 +22,8 @@ const Container = ({ children }) => {
 
   return (
     <>
-      <Navigation />
-      <MobileNavigationTop page="Home" />
-      <Flex
-        as="main"
-        justifyContent="center"
-        flexDirection="column"
-        bg={bgColor[colorMode]}
-        color={color[colorMode]}
-        px={[0, 4, 4]}
-        mt={0, 8, 8}
-      >
-        {children}
-        <Footer />
-      </Flex>
-      <MobileNavigation />
+     <Container>
+      <DarkModeSwitch />
     </>
   )
 }
