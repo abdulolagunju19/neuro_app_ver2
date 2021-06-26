@@ -24,8 +24,8 @@ The first important thing I notice about this article is AQP4 (Aquaporin 4 water
 The second thing I notice is directional transport. Directional transport? What the hell? How in the world does fluid move one directionally in the glymphatic system? Is there a self cleansing mechanism for the fluid once it reaches the brain, some enzyme that cleans up the fluid once our brain extracts what it deems useful? Let’s find out together. Read on. 
 
 Also important, we don’t really understand the fluid patterns that occur in the brain of a living human being, but we do know that Cerebrospinal fluid has a major influx after a stroke or cardiac arrest, so we don’t even have a clear picture of the brain of living person after taking their histological slices. 
-### Why does glymphatic CSF flow run in the same direction as blood flow? Wouldn’t countercurrent exchange make more sense here? [Glymphatic flow is probably not the only fluid flow occurring in the brain]. Still don’t know what makes astrocytes classified as astrocytes, but apparently they have these important AQP4 channels that move must of this CSF fluid. 
-### Additionally, can I see a good picture of the perivascular space? This paper keeps talking about it, but the brain is so mooshed about I don’t even know where it is. After some Googling, it seems to be the space surrounding blood vessels.
+Why does glymphatic CSF flow run in the same direction as blood flow? Wouldn’t countercurrent exchange make more sense here? [Glymphatic flow is probably not the only fluid flow occurring in the brain]. Still don’t know what makes astrocytes classified as astrocytes, but apparently they have these important AQP4 channels that move must of this CSF fluid. 
+Additionally, can I see a good picture of the perivascular space? This paper keeps talking about it, but the brain is so mooshed about I don’t even know where it is. After some Googling, it seems to be the space surrounding blood vessels.
 
 ### Image Goes Here
 
