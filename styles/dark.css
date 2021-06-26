@@ -142,3 +142,6 @@ body.dark-mode {
 body.dark-mode p {
     color: #fff
 }
+body.dark-mode #updates {
+    background: #000000;
+}
