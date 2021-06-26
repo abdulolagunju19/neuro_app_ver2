@@ -1,238 +1,33 @@
 ---
-title: Next.js Pages
+title: Let's talk about Dopamine
 date: 2021/3/18
-description: Learn more about Next.js pages.
-tag: web development
+description: Learn more about dopamine research, and how it relates to addiction.
+tag: Neuroscience
 author: You
 ---
 
-# Next.js Pages
+# Dopamine ‘ups and downs’ in addiction revisited
 
-In Next.js, a **page** is a [React Component](https://reactjs.org/docs/components-and-props.html) exported from a `.js`, `.jsx`, `.ts`, or `.tsx` file in the `pages` directory. Each page is associated with a route based on its file name.
+## Article by Anne-NoëlSamaha, Shaun Y.-S.Khoo, Carrie R.Ferrario, Terry E.Robinson
 
-**Example**: If you create `pages/about.js` that exports a React component like below, it will be accessible at `/about`.
 
-```
-function About() {
-  return <div>About</div>
-}
+## Quote of the Post
 
-export default About
-```
+> He that takes medicine and neglects to diet himself wastes the skill of the physician. — Chinese Proverb
 
-### Pages with Dynamic Routes
+Anybody who knows me, understands that I am obsessed with addiction. All kinds of addictions. I try to learn about hoarders, drug addicts, sex addicts, the whole gamut of dysfunctional people and what makes them dysfunctional. A part of this obsession stems from my own behaviour, and my own tendency to get wrapped up in different rabbit holes. Anyways, lets dive into the paper. From the title, it seems like we will see a lot of information about how the dopaminergic system of addicts changes as they go through their addiction. I wonder if the authors will support their information with animal models, or data collected from addicts? Read on.
 
-Next.js supports pages with dynamic routes. For example, if you create a file called `pages/posts/[id].js`, then it will be accessible at `posts/1`, `posts/2`, etc.
+Alright, from the excerpt at the top of the paper, it becomes clear that we will be seeing evidence from animal models with cocaine addictions, and the paper will discuss whether addiction results in dopamine sensitization or dopamine deficiencies. 
 
-> To learn more about dynamic routing, check the [Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
+The authors explain it would be unwise to use humans to draw conclusions for their opinion piece as its tough to design good experiments that will provide good causal data. They highlight three important processes for giving drugs to their rats, long, short and intermittent access. 
+Mesotelencephalic dopamine systems are the main culprit when we talk about addiction. From some article on the internet, these are the regions: “the substantia nigra and ventral tegmental area that project to a number of regions including the nucleus accumbens, amygdala, striatum, and prefrontal cortex.” Alright, so there a pocket of space in the basal ganglia region of your brain that probably gains more dopamine receptors or less as rats get addicted to cocaine. Still wanna ask, is it dopamine itself, or precusors or other chemicals produced from dopamine? Still don’t know, but still gotta ask. 
 
-## Pre-rendering
+The authors discuss anhedonia, and that seems very sensible to me. Imagine the amount of media and clicks generated when you have an article that describes something like anhedonia. We all care about boredom. Getting rid of boredom always sells. When you like doing something so much, eventually it doesn’t hit the same way? This just seems like a part of life. You get tired of the same old songs. Why should snorting cocaine be any different? And will this primarily be a psychological process facilitated by the amount of neurotransmitters released by neurons, or do glial cells struggle to clean up the neurotransmitters and become less effective at metabolizing neurotransmitters over time, or does something happen to neurotransmitter receptors? Do we have a finite number of a certain type of enzyme producing cell that were just not built to deal with the sheer number of drugs an addict consumes? Who knows, let’s read on.
 
-By default, Next.js **pre-renders** every page. This means that Next.js generates HTML for each page in advance, instead of having it all done by client-side JavaScript. Pre-rendering can result in better performance and SEO.
+I also wonder if there is any research that intersect the default mode network and addiction. There should be regions of the brain that get more active as you spend less time away from your drug of choice, and that trigger some sort of withdrawal mechanism. I feel like these neurons will somehow override the important regions of the default mode network, making it harder for you to perform the mundane physiological needs your body requires to survive, and making you constantly think about your addiction and how you will satisfy that need. Some inhibitory neurons probably in the basal ganglia contribute to some sort of dampening of the prefrontal cortex. Anyways, I digress. Let’s get back to the paper at hand.
 
-Each generated HTML is associated with minimal JavaScript code necessary for that page. When a page is loaded by the browser, its JavaScript code runs and makes the page fully interactive. (This process is called _hydration_.)
+The reviewers address the most eye-catching part of the title, the “ups and downs.” Although, I expected it to do something with how addiction gets you high, it actually deals with whether cocaine addiction is an attempt to overcome dopamine deficiency as you produce less endogenous dopamine after getting addicted to cocaine. So, a similar situation to exogenous testosterone.
 
-### Two forms of Pre-rendering
+Another view is that getting addicted to cocaine sensitizes you to it, and you need more and more to get the same high. I feel like both arguments have merit, but my gut tells me overcoming dopamine deficiency is the right answer. Don’t ask me why.
 
-Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
-
-- [**Static Generation (Recommended)**](#static-generation-recommended): The HTML is generated at **build time** and will be reused on each request.
-- [**Server-side Rendering**](#server-side-rendering): The HTML is generated on **each request**.
-
-Importantly, Next.js lets you **choose** which pre-rendering form you'd like to use for each page. You can create a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.
-
-We **recommend** using **Static Generation** over Server-side Rendering for performance reasons. Statically generated pages can be cached by CDN with no extra configuration to boost performance. However, in some cases, Server-side Rendering might be the only option.
-
-You can also use **Client-side Rendering** along with Static Generation or Server-side Rendering. That means some parts of a page can be rendered entirely by client side JavaScript. To learn more, take a look at the [Data Fetching](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side) documentation.
-
-## Static Generation (Recommended)
-
-If a page uses **Static Generation**, the page HTML is generated at **build time**. That means in production, the page HTML is generated when you run `next build` . This HTML will then be reused on each request. It can be cached by a CDN.
-
-In Next.js, you can statically generate pages **with or without data**. Let's take a look at each case.
-
-### Static Generation without data
-
-By default, Next.js pre-renders pages using Static Generation without fetching data. Here's an example:
-
-```
-function About() {
-  return <div>About</div>
-}
-
-export default About
-```
-
-Note that this page does not need to fetch any external data to be pre-rendered. In cases like this, Next.js generates a single HTML file per page during build time.
-
-### Static Generation with data
-
-Some pages require fetching external data for pre-rendering. There are two scenarios, and one or both might apply. In each case, you can use a special function Next.js provides:
-
-1. Your page **content** depends on external data: Use `getStaticProps`.
-2. Your page **paths** depend on external data: Use `getStaticPaths` (usually in addition to `getStaticProps`).
-
-#### Scenario 1: Your page **content** depends on external data
-
-**Example**: Your blog page might need to fetch the list of blog posts from a CMS (content management system).
-
-```
-// TODO: Need to fetch `posts` (by calling some API endpoint)
-//       before this page can be pre-rendered.
-function Blog({ posts }) {
-  return (
-    <ul>
-      {posts.map((post) => (
-        <li>{post.title}</li>
-      ))}
-    </ul>
-  )
-}
-
-export default Blog
-```
-
-To fetch this data on pre-render, Next.js allows you to `export` an `async` function called `getStaticProps` from the same file. This function gets called at build time and lets you pass fetched data to the page's `props` on pre-render.
-
-```
-function Blog({ posts }) {
-  // Render posts...
-}
-
-// This function gets called at build time
-export async function getStaticProps() {
-  // Call an external API endpoint to get posts
-  const res = await fetch('https://.../posts')
-  const posts = await res.json()
-
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
-  return {
-    props: {
-      posts
-    }
-  }
-}
-
-export default Blog
-```
-
-To learn more about how `getStaticProps` works, check out the [Data Fetching documentation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation).
-
-#### Scenario 2: Your page paths depend on external data
-
-Next.js allows you to create pages with **dynamic routes**. For example, you can create a file called `pages/posts/[id].js` to show a single blog post based on `id`. This will allow you to show a blog post with `id: 1` when you access `posts/1`.
-
-> To learn more about dynamic routing, check the [Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
-
-However, which `id` you want to pre-render at build time might depend on external data.
-
-**Example**: suppose that you've only added one blog post (with `id: 1`) to the database. In this case, you'd only want to pre-render `posts/1` at build time.
-
-Later, you might add the second post with `id: 2`. Then you'd want to pre-render `posts/2` as well.
-
-So your page **paths** that are pre-rendered depend on external data**.** To handle this, Next.js lets you `export` an `async` function called `getStaticPaths` from a dynamic page (`pages/posts/[id].js` in this case). This function gets called at build time and lets you specify which paths you want to pre-render.
-
-```
-// This function gets called at build time
-export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
-  const res = await fetch('https://.../posts')
-  const posts = await res.json()
-
-  // Get the paths we want to pre-render based on posts
-  const paths = posts.map((post) => ({
-    params: { id: post.id }
-  }))
-
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
-}
-```
-
-Also in `pages/posts/[id].js`, you need to export `getStaticProps` so that you can fetch the data about the post with this `id` and use it to pre-render the page:
-
-```
-function Post({ post }) {
-  // Render post...
-}
-
-export async function getStaticPaths() {
-  // ...
-}
-
-// This also gets called at build time
-export async function getStaticProps({ params }) {
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
-  const res = await fetch(`https://.../posts/${params.id}`)
-  const post = await res.json()
-
-  // Pass post data to the page via props
-  return { props: { post } }
-}
-
-export default Post
-```
-
-To learn more about how `getStaticPaths` works, check out the [Data Fetching documentation](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation).
-
-### When should I use Static Generation?
-
-We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
-
-You can use Static Generation for many types of pages, including:
-
-- Marketing pages
-- Blog posts
-- E-commerce product listings
-- Help and documentation
-
-You should ask yourself: "Can I pre-render this page **ahead** of a user's request?" If the answer is yes, then you should choose Static Generation.
-
-On the other hand, Static Generation is **not** a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.
-
-In cases like this, you can do one of the following:
-
-- Use Static Generation with **Client-side Rendering:** You can skip pre-rendering some parts of a page and then use client-side JavaScript to populate them. To learn more about this approach, check out the [Data Fetching documentation](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side).
-- Use **Server-Side Rendering:** Next.js pre-renders a page on each request. It will be slower because the page cannot be cached by a CDN, but the pre-rendered page will always be up-to-date. We'll talk about this approach below.
-
-## Server-side Rendering
-
-> Also referred to as "SSR" or "Dynamic Rendering".
-
-If a page uses **Server-side Rendering**, the page HTML is generated on **each request**.
-
-To use Server-side Rendering for a page, you need to `export` an `async` function called `getServerSideProps`. This function will be called by the server on every request.
-
-For example, suppose that your page needs to pre-render frequently updated data (fetched from an external API). You can write `getServerSideProps` which fetches this data and passes it to `Page` like below:
-
-```
-function Page({ data }) {
-  // Render data...
-}
-
-// This gets called on every request
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://.../data`)
-  const data = await res.json()
-
-  // Pass data to the page via props
-  return { props: { data } }
-}
-
-export default Page
-```
-
-As you can see, `getServerSideProps` is similar to `getStaticProps`, but the difference is that `getServerSideProps` is run on every request instead of on build time.
-
-To learn more about how `getServerSideProps` works, check out our [Data Fetching documentation](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering)
-
-## Summary
-
-We've discussed two forms of pre-rendering for Next.js.
-
-- **Static Generation (Recommended):** The HTML is generated at **build time** and will be reused on each request. To make a page use Static Generation, either export the page component, or export `getStaticProps` (and `getStaticPaths` if necessary). It's great for pages that can be pre-rendered ahead of a user's request. You can also use it with Client-side Rendering to bring in additional data.
-- **Server-side Rendering:** The HTML is generated on **each request**. To make a page use Server-side Rendering, export `getServerSideProps`. Because Server-side Rendering results in slower performance than Static Generation, use this only if absolutely necessary.
+Now we move on to the preclinical models. It’s important to understand how these experiments work if we want to come to some sort of conclusion about them. We will look at the patterns in which drugs are given to the rats, and see if there is any sort of insight we can gain from this. 
