@@ -1,7 +1,7 @@
 ---
 type: posts
-title: Posts
+title: Papers
 date: 2021-03-18
 ---
 
-# Posts
+# Here, I analyze some scientific papers.
