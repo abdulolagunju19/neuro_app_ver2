@@ -1,5 +1,5 @@
 ---
-title: Analysis of Paper, “The Brain’s Glymphatic System: Current Controversies”
+title: Analysis of Paper, “The Brain’s Glymphatic System Current Controversies”
 date: 2021/6/25
 description: Let's talk about the glymphatic system.
 tag: Neuroscience
